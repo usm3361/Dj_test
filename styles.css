@@ -19,7 +19,6 @@ body {
   padding: 20px;
   min-height: 100vh;
   max-width: 1400px;
-  margin: 0 auto;
 }
 .navbar {
   grid-area: navbar;
@@ -39,10 +38,9 @@ body {
   background-color: #06de42;
   border-radius: 100px;
 }
-.logo:hover{
+.logo:hover {
   animation: logo 0.5s forwards ease;
   box-shadow: 1px 1px 10px #06de42;
-
 }
 .logo-png {
   padding-left: 2px;
@@ -62,12 +60,14 @@ body {
   background: none;
   font-size: 8px;
 }
-.btn-navbar:hover {background-color: #06de432a;}
+.btn-navbar:hover {
+  background-color: #06de432a;
+}
 
 .point-online {
   padding: 0.2rem;
   padding-bottom: 0.5rem;
-  animation: online 0.6s infinite ease ;
+  animation: online 0.6s infinite ease;
 }
 @keyframes online {
   from {
@@ -78,10 +78,211 @@ body {
   }
 }
 @keyframes logo {
-  from{
-    transform:rotate(0deg) ;
+  from {
+    transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(180deg);
   }
+}
+.main-area {
+  grid-area: main;
+  display: flex;
+  max-width: 1400px;
+  padding: 1.2rem;
+  flex-direction: column;
+}
+:root {
+  --dark-green: #022d16;
+  --green: #054d2e;
+  --bright-green: 0, 255, 0;
+}
+#radar {
+  height: 16rem;
+  width: 16rem;
+  aspect-ratio: 1;
+  padding: 5px;
+}
+
+#circle {
+  pointer-events: none;
+  height: 40%;
+  width: 40%;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#rings {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  background-color: var(--green);
+  position: absolute;
+}
+#rings > * {
+  border-radius: 100%;
+  border: 2px solid rgb(var(--bright-green));
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+}
+#ring-0 {
+  width: 100%;
+}
+#ring-1 {
+  width: 80%;
+}
+#ring-2 {
+  width: 60%;
+}
+#ring-3 {
+  width: 40%;
+}
+#ring-4 {
+  width: 20%;
+}
+#rotator {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(var(--bright-green), 0.5) 250deg,
+    rgba(var(--bright-green), 0.8) 359deg,
+    white
+  );
+  position: absolute;
+  animation: rotate infinite linear 3s;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.bar-Dj {
+  background-color: #16121e;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  border: 1px solid#333;
+  border-radius: 20px;
+  height: 11rem;
+  width: 90vw;
+  margin-bottom: 1.5rem;
+}
+.bar-Dj:hover {
+  border-radius: 20px;
+  border: 1px solid #01cd0d;
+  transition: border 0.3s ease;
+}
+.hero-section {
+  flex: 1;
+}
+.div1 > h1 {
+  color: #01cd0d;
+  font-size: 1.5rem;
+}
+.div2 > h1 {
+  color: #01cd0d;
+  font-size: 1.5rem;
+}
+.div1 > h5 {
+  color: #6d6b78;
+  font-size: 0.5rem;
+}
+.div2 > h5 {
+  color: #6d6b78;
+  font-size: 0.5rem;
+}
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-main {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  background: none;
+  background-color: #16121e;
+  color: white;
+  border: solid 1px #6d6b78;
+  border-radius: 12px;
+  padding: 6px;
+}
+.btn-main:hover {
+  border-radius: 20px;
+  border: 1px solid #01cd0d;
+  background-color: #06de432a;
+
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}
+.img-btn {
+  width: 8px;
+  margin: 0.2rem;
+}
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+.stat-card {
+  background-color: #16121e;
+  color: white;
+  border: solid 1px #6d6b78;
+  padding: 10px 10px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.stat-top{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.critical {
+  width: fit-content;
+  padding: 2px;
+  font-size: 6px;
+  border: 0.5px solid red;
+  border-radius: 25px;
+}
+.high{
+  width: fit-content;
+    padding: 2px;
+  font-size: 6px;
+  border: 0.5px solid yellow;
+  border-radius: 25px;
+}
+.medium{
+  width: fit-content;
+  padding: 2px;
+  font-size: 6px;
+  border: 0.5px solid green;
+  border-radius: 25px;
+}
+.title-top{
+  font-size: 7px;
+}
+.stat-title{
+  font-size: 10px;
 }
